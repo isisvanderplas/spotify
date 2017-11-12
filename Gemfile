@@ -15,6 +15,8 @@ gem 'jquery-rails', '~> 4.3.1'
 
 gem 'rails_12factor', group: :production
 
+gem 'carrierwave', '0.11.2'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'

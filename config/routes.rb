@@ -14,7 +14,9 @@ Rails.application.routes.draw do
 
   get "artists/:id/edit" => "artists#edit", as: :edit_artist
 
-  get "songs" => "songs#index"
+  patch "artists/:id" => "artists#update"
+
+  get "songs" => "songs#index", as: :songs
 
   get "songs/new" => "songs#new", as: :new_song
 
@@ -24,5 +26,5 @@ Rails.application.routes.draw do
 
   get "songs/:id/edit" => "songs#edit", as: :edit_song
 
-
+  patch "songs/:id" => "songs#update"
 end

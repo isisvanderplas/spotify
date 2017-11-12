@@ -5,6 +5,7 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
+    @photos = @artist.photos
   end
 
   def new
@@ -18,17 +19,22 @@ class ArtistsController < ApplicationController
   def update
     @artist = Artist.find(params[:id])
     if @artist.update_attributes(artist_params)
+      image_params.each do |image|
+      @artist.photos.create(image: image)
+    end
       redirect_to @artist
     else
       render 'edit'
     end
   end
 
-
   def create
     @artist = Artist.new(artist_params)
 
     if @artist.save
+      image_params.each do |image|
+        @artist.photos.create(image: image)
+      end
       redirect_to @artist
     else
       render 'new'
@@ -48,6 +54,10 @@ class ArtistsController < ApplicationController
 
   def artist_params
     params.require(:artist).permit(:name, :image_url)
+  end
+
+  def image_params
+    params[:images].present? ? params.require(:images) : []
   end
 
 end

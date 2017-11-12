@@ -2,8 +2,17 @@
 
 <h4>List of songs:</h4>
 <% @artist.songs.each do |song| %>
-<p><%= song.title %></p>
+<p><%= song.title %> <%= song.duration %></p>
 <% end %>
+
+<% @artist.photos.each do |photo| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= image_tag photo.image.thumbnail %>
+  </div>
+</div>
+<% end %>
+
 
 <%= link_to "[Add Song]", new_song_path %>
 

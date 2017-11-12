@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "artists/new" => "artists#new", as: :new_artist
 
+  post "artists" => "artists#create"
+
   get "artists/:id" => "artists#show", as: :artist
 
   get "artists/:id/songs/:id" => "songs#show"
@@ -15,6 +17,8 @@ Rails.application.routes.draw do
   get "songs" => "songs#index"
 
   get "songs/new" => "songs#new", as: :new_song
+
+  post "songs" => "songs#create"
 
   get "songs/:id" => "songs#show", as: :song
 

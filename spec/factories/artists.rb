@@ -1,5 +1,6 @@
 FactoryGirl.define do
-  factory :artist do
-    name    { Faker::Lorem.words(3).join(' ') }
-  end
+  
+    name        {Faker::Name.name + n.to_s}
+    image_url { Faker::Internet.url }
+
 end

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "artists#index"
 
   get "artists" => "artists#index"
-  #
-  # get "artist/:id" => "artist#show", as: :artist
+
+  get "artists/:id" => "artists#show", as: :artist
 
 end

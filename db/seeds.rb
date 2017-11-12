@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+tom_waits = Artist.create(name:"Tom Waits")
+amy_winehouse = Artist.create(name:"Amy Winehouse")
+prince = Artist.create(name:"Prince")
+lianne_la_havas = Artist.create(name:"Lianne LaHavas")
+fat_freddies_drop = Artist.create(name:"Fat Freddies Drop")
+ennio_morricone = Artist.create(name:"Ennio Morricone")
+
+Song.create(title:"Widow’s grove", duration: "3.56", artist: tom_waits)
+Song.create(title:"Shore Leave", duration: "4.13", artist: tom_waits)
+Song.create(title:"Soldier’s things", duration: "7.20", artist: tom_waits)
+Song.create(title:"In my bed", duration: "2.50", artist: amy_winehouse)
+Song.create(title:"Tears dry on their own", duration: "5.28", artist: amy_winehouse)
+Song.create(title:"Cream", duration: "4.35", artist: prince)
+Song.create(title:"Forget", duration: "3.45", artist: lianne_la_havas)
+Song.create(title:"Au Cinema", duration: "6.12", artist: lianne_la_havas)
+Song.create(title:"Roady", duration: "10.28", artist: fat_freddies_drop)
+Song.create(title:"Wandering eye", duration: "8.53", artist: fat_freddies_drop)
+Song.create(title:"Play me the song of death", duration: "8.56", artist: ennio_morricone)

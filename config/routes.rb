@@ -4,6 +4,21 @@ Rails.application.routes.draw do
 
   get "artists" => "artists#index"
 
+  get "artists/new" => "artists#new", as: :new_artist
+
   get "artists/:id" => "artists#show", as: :artist
+
+  get "artists/:id/songs/:id" => "songs#show"
+
+  get "artists/:id/edit" => "artists#edit", as: :edit_artist
+
+  get "songs" => "songs#index"
+
+  get "songs/new" => "songs#new", as: :new_song
+
+  get "songs/:id" => "songs#show", as: :song
+
+  get "songs/:id/edit" => "songs#edit", as: :edit_song
+
 
 end

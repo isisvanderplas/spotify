@@ -5,7 +5,6 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @song = Song.find(params[:id])
   end
 
   def new
@@ -34,6 +33,14 @@ class ArtistsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    @artist = Artist.find(params[:id])
+
+    @artist.destroy
+
+    redirect_to artists_path
   end
 
 

@@ -40,7 +40,7 @@ class SongsController < ApplicationController
 
     @song.destroy
 
-    redirect_to songs_path
+    redirect_to [@song.artist]
   end
 
   private

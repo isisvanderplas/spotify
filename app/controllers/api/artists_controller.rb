@@ -1,32 +1,45 @@
-class Api::ArtistsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+class Api::ArtistsController < Api::BaseController
+
 
   def index
-    render status: 200, json: {
-      artists: Artist.all
-    }.to_json
+    artists = Artist.all
+    render status: 200, json: artists
   end
+
   def show
     artist = Artist.find(params[:id])
-    return status 404 if artist.nil?
-    render status: 200, json: {
-      artist: artist
-    }.to_json
+    render status: 200, json: artist
   end
 
   def create
     artist = Artist.new(artist_params)
     if artist.save
-      render status: 201, json: {
-        message: "Artist successfully created",
-        artist: artist
-      }.to_json
+      render status: 200, json: artist
     else
       render status: 422, json: {
         errors: artist.errors
       }.to_json
-    end
   end
+
+  def update
+    artist = Artist.find(params[:id])
+    if artist.update(artist_params)
+      render status: 200, json: artist
+    else
+      render status: 500, json: {
+        message: "artist could not be updated",
+        errors: artist.errors
+      }.to_json
+  end
+
+  def destroy
+    artist = Artist.find(params[:id])
+    artist.destroy
+    render status: 200, json: {
+      message: "Artist deleted"
+    }.to_json
+  end
+
 
   private
 

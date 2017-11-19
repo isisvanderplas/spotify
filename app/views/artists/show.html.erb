@@ -1,9 +1,13 @@
 <h1><%= @artist.name %></h1>
 
-<h4>List of songs:</h4>
-<% @artist.songs.each do |song| %>
-<p><%= link_to song.title, artist_song_path(song.artist_id, song.id) %> <%= song.duration %></p>
-<% end %>
+<table>
+<thead id = "listOfSongs"><h4>List of songs:</h4></thead>
+  <% @artist.songs.each do |song| %>
+  <tr class = "songs">
+    <td><p><%= link_to song.title, artist_song_path(song.artist_id, song.id) %></td>
+    <td><%= song.duration %></p></td>
+  </tr>
+  <% end %>
 
 <% @artist.photos.each do |photo| %>
 <div class="panel panel-default">
@@ -12,12 +16,19 @@
   </div>
 </div>
 <% end %>
+</table>
+
+<div id = "invisible"  ><%= render "songform" %></div>
 
 
-<%= link_to "[Add Song]", new_artist_song_path(@artist.id) %>
 
-<%= link_to "[Edit]", edit_artist_path %>
+<button class="toggleForm">Add Song</button>
+<button class="toggleForm">Edit Song</button>
+
+
 
 <%= link_to "[Delete]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }%>
+
+<%= link_to "[Delete All Songs]", artist_path(@artist.id), method: :delete, data: { confirm: "Are you sure?" }%>
 
 <%= link_to "[Back]", artists_path %>

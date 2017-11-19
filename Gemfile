@@ -21,6 +21,7 @@ gem 'cloudinary', '1.2.3'
 
 gem 'active_model_serializers', '~> 0.10.0'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use postgresql as the database for Active Record

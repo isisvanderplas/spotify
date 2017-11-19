@@ -1,9 +1,15 @@
-<h1>Artists</h1>
+<<table >
+<thead id = "listOfArtists"><h1>Artists</h1></thead>
+
 
 <% @artists.each do |artist| %>
-  <p><%= link_to artist.name, artist_path(artist.id) %></p>
-  <% artist.photos.each do |photo| %>
-    <%= image_tag photo.image.thumbnail %>
+  <tr class = "artists">
+    <td><p><%= link_to artist.name, artist_path(artist.id) %></p></td>
+    <% artist.photos.each do |photo| %>
+    <td><%= image_tag photo.image.thumbnail %></td>
+  </tr>
   <% end %>
 <% end %>
+
 <%= link_to "[new]", new_artist_path %>
+</table>

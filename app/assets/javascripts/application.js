@@ -40,11 +40,11 @@
 //     .append(errorHelpBlock);
 // }
 
-
-$("button.toggleForm").on("click", function() {
-  $("div#invisible").show();
+$(document).ready(function() {
+  $("button.toggleForm").on("click", function() {
+    $("div#invisible").toggle();
+  });
 });
-
 
 
 

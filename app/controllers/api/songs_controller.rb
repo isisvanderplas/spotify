@@ -1,4 +1,5 @@
 class Api::SongsController < Api::BaseController
+
   def index
     render status: 200, json: {
       songs: Song.all
@@ -11,4 +12,5 @@ class Api::SongsController < Api::BaseController
       song: song
     }.to_json
   end
+
 end

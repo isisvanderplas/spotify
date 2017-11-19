@@ -1,5 +1,6 @@
 class Api::ArtistsController < Api::BaseController
 
+
   def index
     artists = Artist.all
     render status: 200, json: artists
@@ -38,6 +39,7 @@ class Api::ArtistsController < Api::BaseController
       message: "Artist deleted"
     }.to_json
   end
+
 
   private
 

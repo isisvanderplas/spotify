@@ -1,4 +1,4 @@
-class Api::SongsController < ApplicationController
+class Api::SongsController < Api::BaseController
   def index
     render status: 200, json: {
       songs: Song.all
